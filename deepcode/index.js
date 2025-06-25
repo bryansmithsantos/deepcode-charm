@@ -6,7 +6,7 @@
 const core = require('./core');
 
 // Export the full API
-module.exports = {
+const deepcodeExports = {
     // Core constructors
     CharmClient: core.CharmClient,
     CharmEngine: core.CharmEngine,
@@ -55,3 +55,13 @@ module.exports = {
         }
     }
 };
+
+// CommonJS export
+module.exports = deepcodeExports;
+
+// ES Module export
+module.exports.default = deepcodeExports;
+module.exports.CharmClient = deepcodeExports.CharmClient;
+module.exports.CharmEngine = deepcodeExports.CharmEngine;
+module.exports.CharmContext = deepcodeExports.CharmContext;
+module.exports.CharmExecutor = deepcodeExports.CharmExecutor;

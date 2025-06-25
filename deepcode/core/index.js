@@ -8,7 +8,7 @@ const EventManager = require('./EventManager');
 const VariableManager = require('./VariableManager');
 const CharmEngine = require('./engine');
 const CharmContext = require('./context');
-const CharmClient = require('./client');
+const CharmClient = require('../runtime/CharmClient');
 
 // Base error class
 class CharmError extends Error {
