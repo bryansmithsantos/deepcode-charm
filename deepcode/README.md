@@ -1,4 +1,4 @@
-# 🚀 DeepCode Charm Framework v0.0.5
+# 🚀 DeepCode Charm Framework v0.0.4-alpha-02
 
 **The most powerful and flexible Discord bot framework ever created - NOW WITH 50 COMPLETE PRIMITIVES!**
 

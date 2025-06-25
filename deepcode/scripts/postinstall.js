@@ -1,5 +1,18 @@
 #!/usr/bin/env node
-const chalk = require('chalk');
+let chalk;
+try {
+    chalk = require('chalk');
+} catch (error) {
+    // Fallback if chalk is not available
+    chalk = {
+        blue: (text) => text,
+        green: (text) => text,
+        yellow: (text) => text,
+        red: (text) => text,
+        gray: (text) => text,
+        bold: (text) => text
+    };
+}
 const fs = require('fs').promises;
 const path = require('path');
 

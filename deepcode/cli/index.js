@@ -1,7 +1,21 @@
 #!/usr/bin/env node
 const { program } = require('commander');
 const inquirer = require('inquirer');
-const chalk = require('chalk');
+let chalk;
+try {
+    const chalkModule = require('chalk');
+    chalk = chalkModule.default || chalkModule;
+} catch (error) {
+    // Fallback if chalk is not available
+    chalk = {
+        blue: (text) => text,
+        green: (text) => text,
+        yellow: (text) => text,
+        red: (text) => text,
+        gray: (text) => text,
+        bold: (text) => text
+    };
+}
 const path = require('path');
 const fs = require('fs').promises;
 const { setupWizard } = require('./setup');

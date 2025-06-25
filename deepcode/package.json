@@ -1,6 +1,6 @@
 {
   "name": "deepcode-charm",
-  "version": "0.0.4-alpha",
+  "version": "0.0.4-alpha-02",
   "description": "The most powerful and flexible Discord bot framework with 50 essential primitive charms - Build anything you can imagine!",
   "main": "index.js",
   "bin": {
@@ -9,8 +9,7 @@
   "scripts": {
     "test": "jest",
     "docs": "node scripts/generate-docs.js",
-    "prepublish": "node scripts/prepublish.js",
-    "postinstall": "node scripts/postinstall.js"
+    "prepublish": "node scripts/prepublish.js"
   },
   "keywords": [
     "discord",
