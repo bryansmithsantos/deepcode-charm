@@ -44,8 +44,8 @@ class CharmClient extends Client {
         this.debug = options.debug || false;
         this.config = this.processConfig(options.config || {});
 
-        // Initialize systems
-        this.init();
+        // Initialize systems (sync part only)
+        this.initSync();
     }
 
     /**
@@ -79,10 +79,10 @@ class CharmClient extends Client {
     }
 
     /**
-     * Initialize all systems
+     * Initialize synchronous systems
      * @private
      */
-    init() {
+    initSync() {
         // Load error handler
         this.on('error', error => {
             console.error('Client Error:', error);
@@ -91,11 +91,17 @@ class CharmClient extends Client {
         // Load core event handlers
         this.loadCoreEvents();
 
-        // Load charms automatically
-        this.loadCharms();
-
         // Initialize charm event handlers
         this.initCharmEvents();
+    }
+
+    /**
+     * Initialize asynchronous systems
+     * @private
+     */
+    async initAsync() {
+        // Load charms automatically
+        await this.loadCharms();
     }
 
     /**
@@ -195,6 +201,19 @@ class CharmClient extends Client {
 
         // Login to Discord
         return this.login(token);
+    }
+
+    /**
+     * Login to Discord with charm loading
+     * @param {string} token Bot token
+     * @returns {Promise<string>} Login confirmation
+     */
+    async login(token) {
+        // Load charms before login
+        await this.initAsync();
+
+        // Call parent login method
+        return super.login(token);
     }
 
     /**
