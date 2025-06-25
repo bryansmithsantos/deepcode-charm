@@ -1,0 +1,140 @@
+{
+    "token": "YOUR_BOT_TOKEN",
+
+    "intents": [
+        "Guilds",
+        "GuildMembers",
+        "GuildBans",
+        "GuildEmojisAndStickers",
+        "GuildIntegrations",
+        "GuildWebhooks",
+        "GuildInvites",
+        "GuildVoiceStates",
+        "GuildPresences",
+        "GuildMessages",
+        "GuildMessageReactions",
+        "GuildMessageTyping",
+        "DirectMessages",
+        "DirectMessageReactions",
+        "DirectMessageTyping",
+        "MessageContent",
+        "GuildScheduledEvents"
+    ],
+
+    "partials": [
+        "Message",
+        "Channel",
+        "Reaction",
+        "User",
+        "GuildMember"
+    ],
+
+    "prefix": "!",
+    "debug": false,
+
+    "status": {
+        "text": "commands | !help",
+        "type": "WATCHING",
+        "url": null,
+        "status": "online"
+    },
+
+    "commands": {
+        "caseSensitive": false,
+        "allowDMs": true,
+        "defaultCooldown": 3,
+        "disableDefaultHelp": false,
+        "ignoreBots": true,
+        "loadGlobal": true,
+        "paths": {
+            "commands": "./commands",
+            "events": "./events",
+            "charms": "./charms",
+            "plugins": "./plugins"
+        }
+    },
+
+    "variables": {
+        "persist": true,
+        "path": "./data/variables.json",
+        "backupInterval": 300000,
+        "maxBackups": 5
+    },
+
+    "logging": {
+        "level": "info",
+        "file": "./logs/bot.log",
+        "console": true,
+        "colors": true,
+        "timestamps": true
+    },
+
+    "error": {
+        "debugChannel": null,
+        "reportErrors": true,
+        "stackTrace": true,
+        "ignoreWarnings": false
+    },
+
+    "permissions": {
+        "adminRoles": [],
+        "modRoles": [],
+        "trustedRoles": [],
+        "ignoredChannels": [],
+        "restrictedCommands": {}
+    },
+
+    "limits": {
+        "maxCommands": 50,
+        "maxEvents": 30,
+        "maxPlugins": 10,
+        "maxVariables": 1000,
+        "maxScheduledTasks": 100,
+        "messageCache": 200,
+        "messageSweepInterval": 300
+    },
+
+    "plugins": {
+        "automod": {
+            "enabled": false,
+            "options": {}
+        },
+        "leveling": {
+            "enabled": false,
+            "options": {}
+        },
+        "welcome": {
+            "enabled": false,
+            "options": {}
+        }
+    },
+
+    "development": {
+        "testGuild": null,
+        "devUsers": [],
+        "betaFeatures": false,
+        "verbose": false
+    },
+
+    "advanced": {
+        "sharding": {
+            "enabled": false,
+            "totalShards": "auto",
+            "spawnTimeout": 30000
+        },
+        "cache": {
+            "messageTTL": 3600,
+            "presenceTTL": 1800,
+            "userTTL": 3600
+        },
+        "rateLimit": {
+            "maxRetries": 3,
+            "retryDelay": 5000
+        },
+        "timeouts": {
+            "messageDelete": 5000,
+            "typing": 10000,
+            "presence": 30000
+        }
+    }
+}

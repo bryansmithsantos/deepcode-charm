@@ -1,0 +1,11 @@
+node_modules/
+test/
+test/bot.js
+scripts/
+config/
+charms/BaseCharm.js
+.env
+*.log
+pnpm-lock.yaml
+*.md
+.git 
