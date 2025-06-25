@@ -13,10 +13,13 @@ class CharmEngine {
      */
     async process(code, context) {
         try {
-            // Get command parts
-            const match = code.match(/^\$(\w+)\[(.*)\]$/);
+            // Clean and normalize the code - preserve JSON structure
+            const cleanCode = code.trim();
+
+            // Get command parts - support multiline and complex JSON
+            const match = cleanCode.match(/^\$(\w+)\[([\s\S]*)\]$/);
             if (!match) {
-                throw new Error('Invalid command syntax');
+                throw new Error(`Invalid command syntax: ${cleanCode.substring(0, 100)}...`);
             }
 
             const [, charm, args] = match;
