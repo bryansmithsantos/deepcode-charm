@@ -1,6 +1,6 @@
 {
   "name": "deepcode-charm",
-  "version": "0.0.4-alpha-03",
+  "version": "0.0.4-alpha-04",
   "description": "The most powerful and flexible Discord bot framework with 50 essential primitive charms - Build anything you can imagine!",
   "main": "index.js",
   "bin": {

@@ -85,8 +85,34 @@ class CharmClient extends Client {
             console.error('Client Error:', error);
         });
 
+        // Load core event handlers
+        this.loadCoreEvents();
+
         // Initialize charm event handlers
         this.initCharmEvents();
+    }
+
+    /**
+     * Load core event handlers
+     * @private
+     */
+    loadCoreEvents() {
+        try {
+            // Load messageCreate handler
+            const messageCreateHandler = require('../events/messageCreate');
+            this.on('messageCreate', (message) => messageCreateHandler.execute(message, this));
+
+            // Load ready handler
+            const readyHandler = require('../events/ready');
+            this.on('ready', () => readyHandler.execute(this));
+
+            // Load error handler
+            const errorHandler = require('../events/error');
+            this.on('error', (error) => errorHandler.execute(error, this));
+
+        } catch (error) {
+            console.error('Error loading core events:', error);
+        }
     }
 
     /**

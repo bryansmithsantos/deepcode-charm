@@ -66,7 +66,6 @@ module.exports = {
     VariableManager,
 
     // Error handling
-    errors,
     CharmError,
 
     // Factory method

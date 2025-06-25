@@ -23,11 +23,8 @@ const deepcodeExports = {
     // Error handling
     CharmError: core.CharmError,
 
-    // Utilities
-    utils: core.utils,
-    
     // Version info
-    version: core.version,
+    version: require('./package.json').version,
     
     // Factory methods
     create(options = {}) {
