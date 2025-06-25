@@ -21,7 +21,6 @@ const deepcodeExports = {
     VariableManager: core.VariableManager,
 
     // Error handling
-    errors: core.errors,
     CharmError: core.CharmError,
 
     // Utilities
@@ -51,7 +50,7 @@ const deepcodeExports = {
         try {
             return require(path);
         } catch (error) {
-            throw new core.errors.ValidationError(`Failed to load config: ${error.message}`);
+            throw new core.CharmError(`Failed to load config: ${error.message}`, 'CONFIG_ERROR');
         }
     }
 };
