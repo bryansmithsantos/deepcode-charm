@@ -1,10 +1,12 @@
-# 🚀 DeepCode Charm Framework v0.0.4
+# 🚀 DeepCode Charm Framework v0.0.5
 
 **The most powerful and flexible Discord bot framework ever created - NOW WITH 50 COMPLETE PRIMITIVES!**
 
 DeepCode revolutionizes Discord bot development by providing **50 essential primitive charms** instead of pre-built features. This gives you unlimited freedom to create exactly what you want, how you want it.
 
+[![npm version](https://badge.fury.io/js/deepcode-charm.svg)](https://badge.fury.io/js/deepcode-charm)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub](https://img.shields.io/github/stars/bryansmithsantos/deepcode-charm?style=social)](https://github.com/bryansmithsantos/deepcode-charm)
 
 ## 🎯 **Why DeepCode?**
 
@@ -69,17 +71,17 @@ $embed[{
 ### **Installation**
 
 ```bash
-npm install deepcode-framework
+npm install deepcode-charm
 # or
-yarn add deepcode-framework
+yarn add deepcode-charm
 # or
-pnpm add deepcode-framework
+pnpm add deepcode-charm
 ```
 
 ### **Basic Setup**
 
 ```javascript
-const { CharmClient } = require('deepcode-framework');
+const { CharmClient } = require('deepcode-charm');
 
 const client = new CharmClient({
     intents: ['Guilds', 'GuildMessages', 'MessageContent'],
