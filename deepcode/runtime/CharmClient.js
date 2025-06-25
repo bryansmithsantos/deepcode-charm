@@ -2,7 +2,7 @@
  * CharmClient - Enhanced Discord.js client with charm support
  * @module runtime/CharmClient
  */
-const { Client } = require('discord.js');
+const { Client, Collection } = require('discord.js');
 const CommandManager = require('../core/CommandManager');
 const EventManager = require('../core/EventManager');
 const CharmEvents = require('../core/CharmEvents');
@@ -10,6 +10,7 @@ const PluginManager = require('../core/PluginManager');
 const VariableManager = require('../core/VariableManager');
 const Engine = require('../core/engine');
 const CharmCommandLoader = require('../core/CharmCommandLoader');
+const Loader = require('../core/Loader');
 
 class CharmClient extends Client {
     constructor(options = {}) {
@@ -22,6 +23,8 @@ class CharmClient extends Client {
         this.plugins = new PluginManager(this);
         this.variables = new VariableManager(this);
         this.engine = new Engine(this);
+        this.charms = new Collection();
+        this.loader = new Loader(this);
 
         // CharmCommandLoader for automatic command loading
         this.CharmCommander = (commandsDir = 'commands') => {
@@ -88,6 +91,9 @@ class CharmClient extends Client {
         // Load core event handlers
         this.loadCoreEvents();
 
+        // Load charms automatically
+        this.loadCharms();
+
         // Initialize charm event handlers
         this.initCharmEvents();
     }
@@ -112,6 +118,18 @@ class CharmClient extends Client {
 
         } catch (error) {
             console.error('Error loading core events:', error);
+        }
+    }
+
+    /**
+     * Load charms automatically
+     * @private
+     */
+    async loadCharms() {
+        try {
+            await this.loader.loadCharms();
+        } catch (error) {
+            console.error('Error loading charms:', error);
         }
     }
 
